@@ -1,0 +1,11 @@
+.form {
+  background-color: white;
+  position: relative;
+  margin-left: 5vw;
+  margin-top: 10vh;
+  width: 400px;
+  height: 300px;
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+}

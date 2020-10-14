@@ -8,3 +8,11 @@
   border-style: solid;
   background-color:lightskyblue;
 }
+
+#email_error {
+  position: absolute;
+  top: 55px;
+  left: 100px;
+  font-size: 40px;
+  color: red;
+}

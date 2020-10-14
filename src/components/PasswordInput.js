@@ -4,7 +4,7 @@ import classes from './PasswordInput.css';
 
 const PasswordInput = props => {
 
-  const [ passInput, setPassInput ] = useState('111');
+  const [ passInput, setPassInput ] = useState(``);
 
   const passChangeHandler = value => {
     setPassInput(`${value}`);

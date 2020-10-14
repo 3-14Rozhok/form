@@ -1,9 +1,8 @@
 # form
 Test Signin form
 
-
 How to use:
-1. Git clone 
-2. In commmand line run: " npm install " to install required modules
-3. run: " npm audit fix " to fix ausitories
-4. run: " npm start " to start dev server 
+1. git clone git@github.com:3-14Rozhok/form.git
+2. git checkout create-form
+2. npm install (install required modules)
+3. npm start (start dev server)

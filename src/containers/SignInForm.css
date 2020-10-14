@@ -1,11 +1,8 @@
 .form {
-  background-color: white;
   position: relative;
-  margin-left: 10vw;
-  margin-top: 10vh;
+  background-color: white;
   width: 300px;
-  height: 300px;
-  padding: 1rem;
+  height: 270px;
   border-radius: 10px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
 }

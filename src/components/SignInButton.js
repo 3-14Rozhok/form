@@ -15,12 +15,12 @@ const SignInButton = props => {
   } else {
     return (
       <button 
+      disabled
       id={classes.button} >
       Sign In
       </button>
     );
   }
-
-}
+};
 
 export default SignInButton;

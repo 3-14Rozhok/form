@@ -4,19 +4,34 @@ import classes from './PasswordInput.css';
 
 const PasswordInput = props => {
 
-  const [ passInput, setPassInput ] = useState(``);
+  const [count, setCount] = useState(0);
 
   const passChangeHandler = value => {
-    setPassInput(`${value}`);
     props.setPass(`${value}`);
+    setCount(count + 1);
   };
 
-  return (
-    <input 
-      id={classes.pass} 
-      value={passInput} 
-      onChange={event => passChangeHandler(event.target.value)} />
-  );
-}
+  if((!props.validate() && count === 0) || props.validate()){
+    return (
+      <div>
+      <input 
+        id={classes.pass} 
+        value={props.passInput} 
+        onChange={event => passChangeHandler(event.target.value)} />
+        <div id={classes.pass_error}></div>
+      </div>
+    );
+  } else {
+    return (
+      <div>
+        <input 
+        id={classes.pass} 
+        value={props.passInput} 
+        onChange={event => passChangeHandler(event.target.value)} />
+        <div id={classes.pass_error}>Invalid password</div>
+      </div>
+    );
+  }
+};
 
 export default PasswordInput;

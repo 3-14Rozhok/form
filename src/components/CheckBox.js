@@ -10,7 +10,7 @@ const CheckBox = props => {
         id={classes.checkbox}
         type="checkbox"
         defaultChecked={props.check}
-        onClick={event => props.checkHandler()} />
+        onChange={props.setCheckHandler} />
         <p id={classes.remember}>Remember me</p>
       </div>
     );
@@ -20,13 +20,12 @@ const CheckBox = props => {
         <input
         id={classes.checkbox}
         type="checkbox"
-        disabled
-
-        onClick={event => props.checkHandler()} />
+        defaultChecked={props.check}
+        disabled/>
         <p id={classes.remember}>Remember me</p>
       </div>
     );
   }
-}
+};
 
 export default CheckBox;

@@ -5,44 +5,40 @@ import PasswordInput from '../components/PasswordInput';
 import SignInButton from '../components/SignInButton';
 import CheckBox from '../components/CheckBox';
 import classes from './SignInForm.css';
-import ReactDOM from 'react-dom';
 
 
-const SignInForm = props => {
+const SignInForm = () => {
 
-  const validatePass = pass => {
-    if(pass.length > 4) {
+  const validatePass = () => {
+    if(passInput.length > 3) {
       return true;
-    } else {
-      return false;
-    }
-  }
-
-  const validateEmail = email => {
-    const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return re.test(email);
-  }
+    } 
+    return false;
+  };
 
   const validate = () => {
-    if(validateEmail(emailInput) && validatePass(passInput)){
+    if(validateEmail() && validatePass()){
       return true;
-    } else {
-      return false;
-    }
-  }
+    } 
+    return false;
+  };
 
   const zeroPass = () => {
-    if(passInput.length < 5) {
-      return false
-    } else {
-      return true
+    if(passInput.length === 0) {
+      return false;
     }
-  }
-  
+    return true;
+  };
+
+  const validateEmail = () => {
+    const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(emailInput);
+  };
+
   // Check if there is old email
   let email = '';
   const oldEmail = localStorage.getItem('email') || '';
-  
+
   // If there is no old email
   if(oldEmail === '') {
     // Generating random email
@@ -55,32 +51,35 @@ const SignInForm = props => {
   } else {
     // Else take old email
     email = oldEmail;
-  }
+  };
 
   const [ emailInput, setEmailInput ]  = useState(`${email}`);
   const [ passInput, setPassInput ]  = useState('');
   const [ check, setCheck ] = useState(true);
 
 
-  const checkBoxHandler = () => {
-    // do something
-  }
-
   const signInHandler = () => {
     // Write email locally
     localStorage.setItem('email', emailInput);
-    let message = { mail: emailInput, password: passInput };
+    // Log object
+    let message = { mail: emailInput, password: passInput, checked: check };
     console.log(message);
-  }
+  }; 
+
+  const setCheckHandler = () => {
+    if(check) {
+      setCheck(false);
+    } else setCheck(true);
+  };
 
   return (
       <div className={classes.form}>
-        <EmailInput setEmail={setEmailInput} emailInput={emailInput}/>
-        <PasswordInput setPass={setPassInput}/>
-        <SignInButton onclick={signInHandler} validate={validate}s/>
-        <CheckBox zeroPass={zeroPass} checkHandler={checkBoxHandler} check={check}/>
+        <EmailInput setEmail={setEmailInput} emailInput={emailInput} validate={validateEmail}/>
+        <PasswordInput passInput={passInput} setPass={setPassInput} validate={validatePass}/>
+        <SignInButton onclick={signInHandler} validate={validate}/>
+        <CheckBox zeroPass={zeroPass} check={check} setCheckHandler={setCheckHandler}/>
       </div>
-  );
-}
+    );
+  };
 
 export default SignInForm;

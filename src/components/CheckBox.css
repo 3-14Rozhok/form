@@ -1,0 +1,10 @@
+#checkbox { 
+  position: absolute;
+  top: 130px;
+  left: 50px;
+  background-color:lightskyblue;
+}
+
+#checkbox:checked{ 
+  border-color:black;
+}

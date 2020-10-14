@@ -2,19 +2,20 @@ import React, { useState } from 'react';
 import classes from './EmailInput.css';
 
 
-const EmailInput = () => {
+const EmailInput = props => {
 
   const [ emailInput, setEmailInput ]  = useState('123@mail');
 
   const emailChangeHandler = value => {
-    setEmailInput(value);
-  }  
+    setEmailInput(`${value}`);
+    props.setEmail(`${value}`);
+  }; 
 
   return (
     <input 
       id={classes.email} 
       value={emailInput} 
-      onChange={event => emailChangeHandler(event.target.value)} />
+      onChange={event => emailChangeHandler(event.currentTarget.value)} />
   );
 }
 

@@ -64,7 +64,7 @@ const SignInForm = () => {
     // Log object
     let message = { mail: emailInput, password: passInput, checked: check };
     console.log(message);
-  }; 
+  };
 
   const setCheckHandler = () => {
     if(check) {

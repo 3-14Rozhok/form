@@ -4,10 +4,14 @@ import classes from './CheckBox.css';
 const CheckBox = props => {
 
   return (
-    <input 
-    type="checkbox"
-    id={classes.checkbox} 
-    onClick={event => props.check()} />
+    <div> 
+      <input
+      id={classes.checkbox}
+      type="checkbox"
+      onClick={event => props.check()} />
+      <p id={classes.remember}>Remember me</p>
+    </div>
+    
   );
 }
 

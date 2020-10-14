@@ -1,0 +1,12 @@
+#checkbox { 
+  position: absolute;
+  top: 170px;
+  left: 75px;
+}
+
+#remember {
+  position: absolute;
+  top: 154px;
+  left: 100px;
+  font-size: 15px;
+}
